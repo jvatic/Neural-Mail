@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Neural Mail</title>
+		<% css :bootstrap %>
+		<%= css %>
+	</head>
+
+	<body>
+		<div class='container-fluid'>
+			<div class='sidebar'>
+				<%= erb :sidebar %>
+			</div>
+
+			<div class='content'>
+				<%= yield %>
+			</div>
+		</div>
+
+		<div id='javascript'>
+			<%= javascript %>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<div id='messages'>
+	<% @messages.each do |message| %>
+		<article class='message'>
+		<header><h2><%= message.subject %> <small><%= format_date_time message.date %></h2></header>
+			<div class='content'>
+				<%= message.html || simple_format(message.body) %>
+				<% message.attachments.each do |attachment| %>
+					<a href='/messages/<%= message.id.to_s %>/attachments/<%= attachment['name'] %>'><%= attachment['name'] %></a>
+				<% end %>
+			</div>
+			<hr/>
+		</article>
+	<% end %>
+</div>
