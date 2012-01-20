@@ -13,9 +13,9 @@ get '/' do
   erb :messages
 end
 
-get '/messages/:id/attachments/:name' do
+get '/messages/:id/attachments/:digest' do
   message = Message.find(params[:id]).first
-  attachment = message.find_attachment(params[:name])
+  attachment = message.find_attachment(params[:digest])
   content_type attachment['content_type']
   file = Tempfile.new(attachment['name'])
   file.write(Base64.decode64(attachment['data']))

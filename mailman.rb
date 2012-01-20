@@ -26,7 +26,8 @@ Mailman::Application.run do
         m.attachments << {
           :name         => a.filename,
           :content_type => a.content_type.split(";").first,
-          :data         => a.encoded
+          :data         => Base64.encode64(a.decoded),
+          :digest       => Digest::SHA1.hexdigest("#{a.filename}#{a.encoded}")
         }
       end
     end

@@ -5,7 +5,7 @@
 			<div class='content'>
 				<%= message.html || simple_format(message.body) %>
 				<% message.attachments.each do |attachment| %>
-					<a href='/messages/<%= message.id.to_s %>/attachments/<%= attachment['name'] %>'><%= attachment['name'] %></a>
+					<a href='/messages/<%= message.id.to_s %>/attachments/<%= attachment['digest'] %>'><%= attachment['name'] %></a>
 				<% end %>
 			</div>
 			<hr/>

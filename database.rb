@@ -20,8 +20,8 @@ class Message
   property :html        , String
   property :attachments , Array, :default => []
 
-  def find_attachment(name)
-    attachments.select { |a| a['name'] == name }.first
+  def find_attachment(digest)
+    attachments.select { |a| a['digest'] == digest }.first
   end
 
 end
